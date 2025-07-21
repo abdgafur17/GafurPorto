@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdul Gafur - ERP Executive & IT Professional</title>
+    <style>
+        /* Menggunakan gaya CSS yang disediakan */
+        :root {
+            --yellow-custom: #facc15;
+            --blue-custom: #3b82f6;
+        }
+        
+        * {
+            font-family: 'Press Start 2P', sans-serif;
+            background: #000;
+            color: white;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            line-height: 1.6;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: #000;
+            padding: 2rem 0;
+            border-bottom: 4px solid var(--yellow-custom);
+            position: relative;
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1rem;
+        }
+        
+        .pixel-name {
+            font-size: 2.5rem;
+            color: var(--yellow-custom);
+            text-shadow: 3px 3px 0 var(--blue-custom);
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+        
+        .pixel-title {
+            font-size: 1.2rem;
+            color: var(--blue-custom);
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 3rem 0;
+            border-bottom: 2px dashed #333;
+        }
+        
+        .section-title {
+            color: var(--yellow-custom);
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0 1rem;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--blue-custom);
+        }
+        
+        /* Professional Summary */
+        .summary-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-size: 0.9rem;
+        }
+        
+        /* Competencies */
+        .competencies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .competency-card {
+            background: #111;
+            border: 2px solid #333;
+            padding: 1.5rem;
+            border-radius: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .competency-card:hover {
+            border-color: var(--blue-custom);
+            transform: translateY(-5px);
+        }
+        
+        .competency-card h3 {
+            color: var(--yellow-custom);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        
+        /* Experience */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--yellow-custom);
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+            width: 50%;
+            padding: 1.5rem;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            border-right: 2px solid var(--blue-custom);
+            text-align: right;
+            padding-right: 2.5rem;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            border-left: 2px solid var(--blue-custom);
+            padding-left: 2.5rem;
+        }
+        
+        .timeline-date {
+            color: var(--yellow-custom);
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-company {
+            color: var(--blue-custom);
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .timeline-position {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-responsibilities {
+            list-style-type: none;
+        }
+        
+        .timeline-responsibilities li {
+            position: relative;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            font-size: 0.8rem;
+            line-height: 1.6;
+        }
+        
+        .timeline-responsibilities li:before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--yellow-custom);
+        }
+        
+        /* Education & Skills */
+        .education-skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .education, .skills {
+            background: #111;
+            padding: 1.5rem;
+            border: 2px solid #333;
+        }
+        
+        .education h3, .skills h3 {
+            color: var(--yellow-custom);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+        
+        .degree {
+            margin-bottom: 1.5rem;
+        }
+        
+        .degree-title {
+            font-size: 1rem;
+            color: var(--blue-custom);
+            margin-bottom: 0.3rem;
+        }
+        
+        .university {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+        }
+        
+        .skill-category {
+            margin-bottom: 1.5rem;
+        }
+        
+        .skill-category h4 {
+            color: var(--blue-custom);
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+        
+        .skill-items {
+            list-style-type: none;
+        }
+        
+        .skill-items li {
+            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+        
+        .skill-items li:before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--yellow-custom);
+        }
+        
+        /* Achievements */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .achievement-card {
+            background: #111;
+            border: 2px solid #333;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .achievement-card:hover {
+            border-color: var(--yellow-custom);
+            transform: scale(1.03);
+        }
+        
+        .achievement-icon {
+            font-size: 2.5rem;
+            color: var(--yellow-custom);
+            margin-bottom: 1rem;
+        }
+        
+        .achievement-title {
+            color: var(--blue-custom);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: #111;
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+        
+        .copyright {
+            margin-top: 1rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .pixel-name {
+                font-size: 1.8rem;
+            }
+            
+            .pixel-title {
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                font-size: 1.4rem;
+            }
+            
+            .timeline:before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 20px;
+                text-align: left;
+                border-left: 2px solid var(--blue-custom);
+                border-right: none;
+                padding-left: 2.5rem;
+            }
+            
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1 class="pixel-name">ABDUL GAFUR</h1>
+                <div class="pixel-title">ERP EXECUTIVE | IT PROFESSIONAL | 8+ YEARS EXPERIENCE</div>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <span>abdulgafur955@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📱</span>
+                        <span>0896-9023-3685</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <span>Bantul, Yogyakarta, Indonesia</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>🔗</span>
+                        <span>linkedin.com/in/abdulgafur-851504190</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Professional Summary -->
+    <section id="summary">
+        <div class="container">
+            <h2 class="section-title">PROFESSIONAL SUMMARY</h2>
+            <div class="summary-content">
+                <p>IT professional with over 8 years of experience specializing in ERP system management, SCADA operations, IT infrastructure, and RFID administration. Proven track record in optimizing technology systems across various industries, including aviation, mining, and aquaculture.</p>
+                <p>Adept at analyzing, managing, and enhancing operational efficiency through strategic technological solutions. Currently serving as an ERP Executive at PT. JALA Akuakultur Lestari Alamku, responsible for managing and implementing Odoo ERP systems to streamline business operations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Competencies -->
+    <section id="competencies">
+        <div class="container">
+            <h2 class="section-title">CORE COMPETENCIES</h2>
+            <div class="competencies-grid">
+                <div class="competency-card">
+                    <h3>ERP SYSTEM MANAGEMENT</h3>
+                    <p>Expert in Odoo ERP implementation, customization, and management</p>
+                </div>
+                <div class="competency-card">
+                    <h3>IT INFRASTRUCTURE</h3>
+                    <p>Network support, hardware troubleshooting, system integration</p>
+                </div>
+                <div class="competency-card">
+                    <h3>SCADA OPERATIONS</h3>
+                    <p>Monitoring and operating industrial control systems</p>
+                </div>
+                <div class="competency-card">
+                    <h3>RFID ADMINISTRATION</h3>
+                    <p>Attendance systems management and employee access control</p>
+                </div>
+                <div class="competency-card">
+                    <h3>DATABASE MANAGEMENT</h3>
+                    <p>MySQL database administration and reporting</p>
+                </div>
+                <div class="competency-card">
+                    <h3>PROJECT ENGINEERING</h3>
+                    <p>Technical infrastructure projects execution</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Experience -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">PROFESSIONAL EXPERIENCE</h2>
+            <div class="timeline">
+                <!-- Current Position -->
+                <div class="timeline-item">
+                    <div class="timeline-date">February 2024 – Present</div>
+                    <div class="timeline-company">PT. JALA Akuakultur Lestari Alamku</div>
+                    <div class="timeline-position">ERP Executive</div>
+                    <ul class="timeline-responsibilities">
+                        <li>Manage and oversee the Odoo ERP system to ensure seamless operations</li>
+                        <li>Customize and configure Odoo modules to meet business requirements</li>
+                        <li>Ensure data integrity, accuracy, and security within ERP</li>
+                        <li>Provide technical support and conduct training sessions</li>
+                        <li>Integrate Odoo with third-party applications</li>
+                        <li>Generate and analyze reports for decision-making</li>
+                    </ul>
+                </div>
+                
+                <!-- Previous Positions -->
+                <div class="timeline-item">
+                    <div class="timeline-date">September 2023 – November 2023</div>
+                    <div class="timeline-company">PT. INPARTS PRIMA SUKSES</div>
+                    <div class="timeline-position">IT Support Engineer</div>
+                    <ul class="timeline-responsibilities">
+                        <li>Repaired IT equipment, software, and computer networks</li>
+                        <li>Maintained and troubleshooted hardware and software issues</li>
+                        <li>Resolved problems related to the Odoo reporting system</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">September 2021 – September 2023</div>
+                    <div class="timeline-company">PT. Cardig Aero Services Tbk (CAS Group)</div>
+                    <div class="timeline-position">IT Mining Support Officer</div>
+                    <ul class="timeline-responsibilities">
+                        <li>Provided IT support for mining operations in Kalimantan</li>
+                        <li>Repaired IT equipment, software, and network systems</li>
+                        <li>Maintained and troubleshooted hardware/software issues</li>
+                        <li>Resolved issues with the Odoo reporting system</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">June 2021 – August 2021</div>
+                    <div class="timeline-company">PT. Pamora Coffee Indonesia</div>
+                    <div class="timeline-position">IT Support Technician</div>
+                    <ul class="timeline-responsibilities">
+                        <li>Managed Odoo system as Database Administrator</li>
+                        <li>Entered and maintained sales/purchase data reports</li>
+                        <li>Conducted maintenance and troubleshooting</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">May 2020 – June 2021</div>
+                    <div class="timeline-company">PT. Infomedia Nusantara (Maybank Indonesia)</div>
+                    <div class="timeline-position">Technical Infrastructure Engineer</div>
+                    <ul class="timeline-responsibilities">
+                        <li>Installed, updated, and evaluated computer systems for Maybank branches</li>
+                        <li>Repaired problematic computer networks</li>
+                        <li>Ensured timely updates of systems and applications</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">August 2019 – May 2020</div>
+                    <div class="timeline-company">PT. Tripatra Engineers and Constructors</div>
+                    <div class="timeline-position">IT Support & RFID Admin</div>
+                    <ul class="timeline-responsibilities">
+                        <li>Managed RFID and fingerprint attendance systems</li>
+                        <li>Provided IT support for network installations</li>
+                        <li>Created employee ID badges and supported RFID devices</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">February 2019 – June 2019</div>
+                    <div class="timeline-company">PT. Jaya Teknik Indonesia</div>
+                    <div class="timeline-position">Project Engineer</div>
+                    <ul class="timeline-responsibilities">
+                        <li>Handled installation of 264 new cameras at Soekarno-Hatta Airport</li>
+                        <li>Conducted periodic maintenance and troubleshooting</li>
+                        <li>Reported activities to Angkasa Pura 2</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">November 2014 – January 2019</div>
+                    <div class="timeline-company">PT. Angkasa Pura Support / PT. Jaya Teknik Indonesia</div>
+                    <div class="timeline-position">SCADA Operator</div>
+                    <ul class="timeline-responsibilities">
+                        <li>Operated and monitored baggage handling systems at airports</li>
+                        <li>Reported daily, weekly, and monthly activities</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Skills -->
+    <section id="education-skills">
+        <div class="container">
+            <h2 class="section-title">EDUCATION & SKILLS</h2>
+            <div class="education-skills">
+                <!-- Education -->
+                <div class="education">
+                    <h3>EDUCATION</h3>
+                    <div class="degree">
+                        <div class="degree-title">Bachelor of Computer Science (S1)</div>
+                        <div class="university">Universitas Mulia Balikpapan</div>
+                        <div class="timeline-date">2014 – 2019</div>
+                    </div>
+                    
+                    <h3 style="margin-top: 2rem;">CERTIFICATIONS</h3>
+                    <div class="certification">
+                        <div class="degree-title">IDT Certificate Academy</div>
+                        <div class="university">PT. Jaya Teknik Indonesia / Ipsotek Ltd, Jakarta</div>
+                        <div class="timeline-date">2017</div>
+                    </div>
+                    
+                    <h3 style="margin-top: 2rem;">LANGUAGES</h3>
+                    <div class="languages">
+                        <p><strong>Indonesian:</strong> Native</p>
+                        <p><strong>English:</strong> Professional Working Proficiency</p>
+                    </div>
+                </div>
+                
+                <!-- Skills -->
+                <div class="skills">
+                    <h3>TECHNICAL SKILLS</h3>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>OPERATING SYSTEMS</h4>
+                            <ul class="skill-items">
+                                <li>Windows 7</li>
+                                <li>Windows 10</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4>NETWORKING</h4>
+                            <ul class="skill-items">
+                                <li>LAN/WAN</li>
+                                <li>IP CCTV</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4>PROGRAMMING</h4>
+                            <ul class="skill-items">
+                                <li>PHP</li>
+                                <li>MySQL</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4>SOFTWARE</h4>
+                            <ul class="skill-items">
+                                <li>Microsoft Office</li>
+                                <li>Adobe Photoshop</li>
+                                <li>Odoo ERP</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4>OTHER SKILLS</h4>
+                            <ul class="skill-items">
+                                <li>Hardware & Software Troubleshooting</li>
+                                <li>System Integration</li>
+                                <li>RFID Administration</li>
+                                <li>SCADA Operations</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements -->
+    <section id="achievements">
+        <div class="container">
+            <h2 class="section-title">KEY ACHIEVEMENTS</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">🚀</div>
+                    <div class="achievement-title">ERP SYSTEM OPTIMIZATION</div>
+                    <p>Successfully managed and optimized the Odoo ERP system at PT. JALA Akuakultur, leading to improved operational efficiency.</p>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">📷</div>
+                    <div class="achievement-title">AIRPORT SECURITY PROJECT</div>
+                    <p>Played a key role in the installation and maintenance of 264 cameras at Soekarno-Hatta Airport Terminal 3, ensuring smooth operations.</p>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">🏦</div>
+                    <div class="achievement-title">BANKING IT SUPPORT</div>
+                    <p>Provided critical IT support for Maybank Indonesia, ensuring seamless network and system operations across multiple branches.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>abdulgafur955@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <span>0896-9023-3685</span>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Bantul, Yogyakarta, Indonesia</span>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2024 Abdul Gafur - All Rights Reserved
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
